@@ -1,6 +1,6 @@
 import "./app-filter.css";
 
-const AppFilter = (props) => {
+const AppFilter = ({ filter, onUpdateFilter }) => {
   const buttonsData = [
     { name: "all", label: "Все сотрудники", colored: false },
     { name: "promotion", label: "На повышение", colored: false },
@@ -8,17 +8,11 @@ const AppFilter = (props) => {
   ];
 
   const buttons = buttonsData.map(({ name, label, colored }) => {
-    const active = props.filter === name;
+    const active = filter === name;
     const clazz = active ? "btn-light" : "btn-outline-light";
     const color = colored ? { color: "#e09f3e" } : null;
     return (
-      <button
-        type="button"
-        className={`btn ${clazz}`}
-        key={name}
-        onClick={() => props.onUpdateFilter(name)}
-        style={color}
-      >
+      <button type="button" className={`btn ${clazz}`} key={name} onClick={() => onUpdateFilter(name)} style={color}>
         {label}
       </button>
     );

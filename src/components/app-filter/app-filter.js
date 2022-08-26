@@ -10,7 +10,7 @@ const AppFilter = (props) => {
   const buttons = buttonsData.map(({ name, label, colored }) => {
     const active = props.filter === name;
     const clazz = active ? "btn-light" : "btn-outline-light";
-    const color = colored ? { color: "red" } : null;
+    const color = colored ? { color: "#e09f3e" } : null;
     return (
       <button
         type="button"
